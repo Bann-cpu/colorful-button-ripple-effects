@@ -1,44 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
-
 *{
-    margin : 0;
-    box-sizing: border-box;
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: rgba(173, 106, 17, 0.815);
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+
+body {
+    background-color: rgb(55, 124, 101);
     color: white;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
-header,  
-form {
+form, 
+header {
     min-height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 
-
-form :is(input, button ) {
+form :is(input, button){
+    border: none;
+    background: white;
+    border-radius: 20px;
     padding: 0.5rem;
     padding-left: 1rem;
-    font-size: 1.8rem;
-    border: none;
-    background-color: white;
-    border-radius: 20px;
 }
 
+
 form button {
-    color: rgb(255, 200, 0);
-    background-color: white;
+    color: rgb(84, 167, 51);
+    background: white;
     cursor: pointer;
-    transition: all 0.3 ease;
-    margin-left: 0.5rem;
+    margin-left: 10px;
+}
+ 
+
+form button:hover{
+    color: white;
+    background: rgb(84, 167, 51);
+    transition: all 0.5s ease;
+}
+
+form i{
+    margin-left: -8px;
 }
