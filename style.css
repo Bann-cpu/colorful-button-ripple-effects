@@ -3,33 +3,31 @@
 }
 
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body{
     font-family: 'Poppins', sans-serif;
+    height: 100vh;
 }
 
-.app{
+.input-header {
     display: flex;
-    justify-content: center;
     height: 20vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.app h1{
-    position: absolute;
-    align-self: center;
+.input-header #titleTodo {
+    height: 10vh;
     display: flex;
+    width: auto;
+    align-self: center;
+    justify-content: center;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-size: 3rem;
-}
-
-.app .input-header{
-    display: flex;
-    align-items: flex-end;
 }
 
 .app .input-header .to-do-input input{
@@ -43,7 +41,26 @@ body{
     background-color: rgb(171, 194, 187);
     border: none;
     padding: 8px;
+    margin-left: 1rem;
     border-radius: 20px;
     font-weight: 900;
     cursor: pointer;
+}
+
+.app .input-header .to-do-input {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 80px;
+}
+
+.app .to-do-list {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
 }

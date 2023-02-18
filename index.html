@@ -12,23 +12,42 @@
 
     <main class="app">
 
-        <h1>My todo list...</h1>
+      
 
-        <div class="input-header">
+        <header class="input-header">
+            <h1 id="titleTodo">My todo list...</h1>
 
             <h1><span id="date"></span></h1>
-            
+
             <div class="to-do-input">
                 <input type="text" id="item" placeholder="Enter a task"> 
                 <button id="enter">Enter</button>
             </div>
 
-        </div>
+        </header>
 
         <div class="to-do-list"></div>
 
     </main>
 
+
+    <div class="item">
+        <div class="input-controller">
+
+            <textarea disabled></textarea>
+
+            <div class="edit-controller">
+                <i class="fa-solid fa-check deleteBtn"></i>
+                <i class="fa-solid fa-pen-to-square editBtn"></i>
+            </div>
+
+        </div>
+
+        <div class="update-controller">
+            <button class="save">Save</button>
+            <button class="CancelBtn">Cancel</button>
+        </div>
+    </div>
     <script src="/script.js"></script>
 </body>
 </html>
