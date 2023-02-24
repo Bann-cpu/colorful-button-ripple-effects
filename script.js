@@ -30,7 +30,41 @@ function displateItems(){
     </div>`
     }
     document.querySelector(".to-do-list").innerHTML = items
+
+    activateDeleteListeners()
+    activateEditListeners()
+    activateSaveListeners()
+    ActiaveCancelListeners()
 }
+
+function activateDeleteListeners() {
+    let deleteBtn = document.querySelectorAll(".deleteBtn")
+    deleteBtn.forEach((deleteBtn, i) => {
+        deleteBtn.addEventListener("click", () => {deleteItem(i)})
+    })
+}
+
+function deleteItem(i) {
+    itemsArray.splice(i, 1)
+    localStorage.setItem("items", JSON.stringify(itemsArray))
+    location.reload()
+}
+
+ function activateEditListeners() {
+    const editButton = document.querySelectorAll(".editBtn")
+    const updateController = document.querySelectorAll('.update-controller')
+    const inputController = document.querySelector(".input-controller textarea")
+    editButton.forEach((editButton, i) => {
+        editButton.addEventListener("click", () => {
+            updateController[i].style.display = "block" //dans le css c'était en display:none
+            inputController[i].disabled = false})
+    })
+}
+
+function editItem(i) {
+    itemsArray
+}
+
 
 function createItem(item) {
      itemsArray.push(item.value) //Dans itemsArray on push la valeur de l'item
@@ -41,7 +75,7 @@ function createItem(item) {
 function displayDate() {
     let date = new Date()
     date = date.toString().split(" ") //Separe tout car espace
-    //document.querySelector('#date').innerHTML = date[1] + " " + date[2] + " " + date[3]
+    document.querySelector('#date').innerHTML = date[1] + " " + date[2] + " " + date[3]
 }
 
 //innerHTML = insérer un élement dans la page ou modifier le contenu d'une balise
