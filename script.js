@@ -31,8 +31,8 @@ function displateItems(){
     }
     document.querySelector(".to-do-list").innerHTML = items
 
-    activateDeleteListeners()
-    activateEditListeners()
+    activateDeleteListeners() //k
+    activateEditListeners() //k
     activateSaveListeners()
     ActiaveCancelListeners()
 }
@@ -44,16 +44,10 @@ function activateDeleteListeners() {
     })
 }
 
-function deleteItem(i) {
-    itemsArray.splice(i, 1)
-    localStorage.setItem("items", JSON.stringify(itemsArray))
-    location.reload()
-}
-
- function activateEditListeners() {
+function activateEditListeners() {
     const editButton = document.querySelectorAll(".editBtn")
     const updateController = document.querySelectorAll('.update-controller')
-    const inputController = document.querySelector(".input-controller textarea")
+    const inputController = document.querySelectorAll(".input-controller textarea")
     editButton.forEach((editButton, i) => {
         editButton.addEventListener("click", () => {
             updateController[i].style.display = "block" //dans le css c'était en display:none
@@ -61,10 +55,21 @@ function deleteItem(i) {
     })
 }
 
-function editItem(i) {
-    itemsArray
+function  activateSaveListeners() {
+    const saveBtn = document.querySelectorAll(".saveBtn")
+    const inputs = document.querySelectorAll(".input-controller textarea")
+    saveBtn.forEach((saveBtn, i) => {
+        saveBtn.addEventListener("click", () => {
+            updateItem(inputs[i].value, i)
+        })
+    })
 }
 
+function updateItem(text, i) {
+    itemsArray[i] = text
+    localStorage.setItem("items", JSON.stringify(itemsArray))
+    location.reload()
+}
 
 function createItem(item) {
      itemsArray.push(item.value) //Dans itemsArray on push la valeur de l'item
@@ -78,9 +83,15 @@ function displayDate() {
     document.querySelector('#date').innerHTML = date[1] + " " + date[2] + " " + date[3]
 }
 
+function deleteItem(i) {
+    itemsArray.splice(i, 1)
+    localStorage.setItem("items", JSON.stringify(itemsArray))
+    location.reload()
+}
 //innerHTML = insérer un élement dans la page ou modifier le contenu d'une balise
 
 window.onload = function(){ //quand le window est chargé on execute la fonction displayDate
     displayDate()
     displateItems()
 }
+
