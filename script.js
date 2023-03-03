@@ -61,13 +61,13 @@ function  activateSaveListeners() {
     saveBtn.forEach((saveBtn, i) => {
         saveBtn.addEventListener("click", () => {
             updateItem(inputs[i].value, i)
-        })
+        })  
     })
 }
 
 function updateItem(text, i) {
     itemsArray[i] = text
-    localStorage.setItem("items", JSON.stringify(itemsArray))
+    localStorage.setItem('items', JSON.stringify(itemsArray))
     location.reload()
 }
 
