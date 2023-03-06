@@ -34,7 +34,7 @@ function displateItems(){
     activateDeleteListeners() //k
     activateEditListeners() //k
     activateSaveListeners()
-    ActiaveCancelListeners()
+    ActivateCancelListeners()
 }
 
 function activateDeleteListeners() {
@@ -55,22 +55,6 @@ function activateEditListeners() {
     })
 }
 
-function  activateSaveListeners() {
-    const saveBtn = document.querySelectorAll(".saveBtn")
-    const inputs = document.querySelectorAll(".input-controller textarea")
-    saveBtn.forEach((saveBtn, i) => {
-        saveBtn.addEventListener("click", () => {
-            updateItem(inputs[i].value, i)
-        })  
-    })
-}
-
-function updateItem(text, i) {
-    itemsArray[i] = text
-    localStorage.setItem('items', JSON.stringify(itemsArray))
-    location.reload()
-}
-
 function createItem(item) {
      itemsArray.push(item.value) //Dans itemsArray on push la valeur de l'item
      localStorage.setItem("items", JSON.stringify(itemsArray)) //stringify car itemsArray contient item.value
@@ -82,7 +66,20 @@ function displayDate() {
     date = date.toString().split(" ") //Separe tout car espace
     document.querySelector('#date').innerHTML = date[1] + " " + date[2] + " " + date[3]
 }
+function activateSaveListeners() {
+    let saveBtn = document.querySelectorAll(".update-controller .saveBtn")
+    let inputs = document.querySelectorAll(".input-controller textarea")
+    saveBtn.forEach((saveButton, i) => {
+        saveButton.addEventListener("click", () => {updateItem(inputs[i].value, i)
+        })  
+    })
+}
 
+function updateItem(text, i) {
+    itemsArray[i] = text
+    localStorage.setItem('items', JSON.stringify(itemsArray))
+    location.reload()
+}
 function deleteItem(i) {
     itemsArray.splice(i, 1)
     localStorage.setItem("items", JSON.stringify(itemsArray))
