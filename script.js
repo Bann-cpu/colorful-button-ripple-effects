@@ -66,6 +66,7 @@ function displayDate() {
     date = date.toString().split(" ") //Separe tout car espace
     document.querySelector('#date').innerHTML = date[1] + " " + date[2] + " " + date[3]
 }
+
 function activateSaveListeners() {
     let saveBtn = document.querySelectorAll(".update-controller .saveBtn")
     let inputs = document.querySelectorAll(".input-controller textarea")
@@ -75,8 +76,8 @@ function activateSaveListeners() {
     })
 }
 
-function updateItem(text, i) {
-    itemsArray[i] = text
+function updateItem(txt, i) {
+    itemsArray[i] = txt
     localStorage.setItem('items', JSON.stringify(itemsArray))
     location.reload()
 }
