@@ -68,11 +68,27 @@ function displayDate() {
 }
 
 function activateSaveListeners() {
-    let saveBtn = document.querySelectorAll(".update-controller .saveBtn")
-    let inputs = document.querySelectorAll(".input-controller textarea")
-    saveBtn.forEach((saveButton, i) => {
-        saveButton.addEventListener("click", () => {updateItem(inputs[i].value, i)
+    const saveBtn = document.querySelectorAll(".update-controller  .saveBtn")
+    const inputs = document.querySelectorAll(".input-controller textarea")
+    const updateController = document.querySelectorAll(".update-controller")
+    saveBtn.forEach((sb, i) => {
+        sb.addEventListener("click", () => {
+            updateItem(inputs[i].value)
+            inputs[i].disabled = false
+            console.log("Has clicked");
         })  
+    })
+}
+
+function ActivateCancelListeners() {
+    const CancelBtn = document.querySelectorAll(".update-controller  .CancelBtn")
+    const updateController = document.querySelectorAll(".update-controller")
+    const inputs = document.querySelectorAll(".input-controller textarea")
+    CancelBtn.forEach((cb, i) => {
+        cb.addEventListener("click", () => {
+            updateController[i].style.display = "none"
+            inputs[i].disabled = true
+        })
     })
 }
 
