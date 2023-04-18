@@ -2,11 +2,11 @@
     display: none;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     height: 100dvh;
     width: 100dvw;
@@ -31,14 +31,14 @@ body{
     font-size: 3rem;
 }
 
-.app .input-header .to-do-input input{
-    background:rgb(171, 194, 187);
+.app .input-header .to-do-input input {
+    background: rgb(171, 194, 187);
     border: none;
     border-radius: 20px;
     padding: 8px;
 }
 
-.app .input-header .to-do-input button{
+.app .input-header .to-do-input button {
     background-color: rgb(171, 194, 187);
     border: none;
     padding: 8px;
